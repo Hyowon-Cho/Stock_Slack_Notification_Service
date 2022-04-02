@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<title>Stock Times</title>
+<!DOCTYPE html>
+<html>
+<title>Stock News</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://news.nateimg.co.kr/orgImg/aj/2021/03/23/20210323122143750203.jpg");
+  min-height: 50%;
+}
+
+.menu {
+  display: none;
+}
+
+.img_logo{
+  display:flex;
+  align-items:center;
+  justify-contents:center;
+  height:10%;
+  width: 80%;
+}
+.img_logo img{
+  align-items:center;
+  justify-contents:center;
+  margin-left: 250px;
+  height:300px;
+  width: 300px;
+}
+
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large">
+    <span class="w3-tag"><a href="/export?word={{word}}">Export to CSV</a></span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:50px" class="title">증권 뉴스 모아따</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+ 
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:800px">
+   
+    <h3 class="w3-center w3-padding-64"><span class="w3-tag w3-wide" style="font-size:50px">Main News</span></h3>
+
+    <div class="w3-padding-bottom-64">
+    <h5 class="w3-center w3-"><span style="font-size:30px" class="w3-tag w3-wide">Naver : {{num_n}}</span></h5>
+    <h5 class="w3-center w3-"><span style="font-size:30px" class="w3-tag w3-wide">Google : {{num_g}} </span></h5>
+    <h5 class="w3-center w3-"><span style="font-size:30px" class="w3-tag w3-wide">results found</span></h5>
+    </div>
+
+    <div class="img_logo w3-padding-64">
+           <img src="https://i.pinimg.com/originals/fb/71/04/fb71048e03a5ada757f70d61b583d0bf.png"/>
+    </div>
+
+    {% for article in articles_n %}
+       <p style="border-bottom: 1px solid grey">
+         <h3>{{article.Title}}</h3>
+         
+         <h4><a href="{{article.Link}}"  target="_blank">Click!</a>    from Naver</h4>
+       </p><hr><hr><hr>
+    {% endfor %}
+
+    <div class="img_logo w3-padding-64">
+           <img src="https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/5rH/image/aFrEyVpANu07FvoBZQbIB4aF_uc"/>
+    </div>
+    
+    {% for article in articles_g %}
+       <p style="border-bottom: 1px solid grey">
+         <h3>{{article.Title}}</h3>
+         
+         <h4><a href="{{article.Link}}"  target="_blank">Click!</a>    from Google</h4>
+       </p><hr><hr><hr>
+    {% endfor %}
+   
+
+
+    
+   <hr>
+    <p><strong>Main Stock News</strong></p>
+    <p><strong>{{nowDate}} </strong></p>
+  </div>
+</div>
+
+
+
+</body>
+</html>
